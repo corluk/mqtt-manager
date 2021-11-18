@@ -1,0 +1,33 @@
+{
+  "name": "mqtt-manager",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node_modules/.bin/babel src --out-dir lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/corluk/mqtt-manager.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/corluk/mqtt-manager/issues"
+  },
+  "homepage": "https://github.com/corluk/mqtt-manager#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.16.0",
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
+    "chai": "^4.3.4",
+    "dotenv": "^10.0.0",
+    "esm": "^3.2.25",
+    "jest": "^27.3.1"
+  },
+  "dependencies": {
+    "mqtt": "^4.2.8"
+  }
+}
