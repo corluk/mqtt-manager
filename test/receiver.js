@@ -10,8 +10,8 @@ import dotenv from "dotenv"
         console.log("message",message.toString())
     }
     const mqtt = MQTT(process.env.MQTT_URI)
-    console.log(mqtt)
-    const client= await mqtt.receive("SOME_TOPIC",handler,{connectOpts: {clientId : "client2",clean:false} ,subscribeOpts: {
+  
+    const client= await mqtt.listen("SOME_TOPIC",handler,{connectOpts: {clientId : "client2",clean:false} ,subscribeOpts: {
         qos : 0, 
         retain : true
     }})

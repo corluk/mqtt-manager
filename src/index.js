@@ -40,7 +40,7 @@ export default (uri)=>{
             
 
         },
-        receive: (topic,handler,opts)=>{
+        listen: (topic,handler,opts)=>{
             
             
             let connectOpts = {...{},...opts.connectOpts}
