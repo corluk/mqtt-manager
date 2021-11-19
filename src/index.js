@@ -4,11 +4,11 @@ export default (uri)=>{
 
     
 
-    return {
+ 
         
-        send : (topic,msg,opts  )=>{
+        const send = (topic,msg,opts  )=>{
 
-
+            opts = opts || {}
             const  connectOpts = {...{},...opts.connectOpts}
             const  subscribeOpts = {...{},...opts.subscribeOpts}
             const  publishOpts = {...{},...opts.publishOpts}
@@ -39,39 +39,33 @@ export default (uri)=>{
         
             
 
-        },
-        listen: (topic,handler,opts)=>{
+        }
+       
+       const  listen =  (topic,handlerFn,opts)=>{
             
-            
+            opts = opts || {}
             let connectOpts = {...{},...opts.connectOpts}
             let subscribeOpts = {...{},...opts.subscribeOpts}
-           
-            
-
-            
-            
-            
-            return new Promise((resolve,reject)=>{
-
-                const client = mqtt.connect(uri,connectOpts) 
-                client.on("message",handler)
                 
-               
-                client.on("connect",()=>{
+            const client = mqtt.connect(uri,connectOpts) 
+            client.on("message",handlerFn(client))
+        
+
+            client.on("connect",()=>{
                    client.subscribe(topic,subscribeOpts,(err,granted)=>{
                        
                         if(err){
-                            reject(err)
+                            throw new Error(err.message)
                         }
                         
-                        resolve(client)
+                         
                        
                     })
                
                 })
 
 
-            })
+         
                 
                 
                
@@ -80,6 +74,6 @@ export default (uri)=>{
 
            
         }
-    }
-
-}
+    
+        return {send,listen,sendAndListen}
+}   

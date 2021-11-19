@@ -1,4 +1,4 @@
-import MQTT from "../src/index"
+import MQTT from "../../src/index"
 import dotenv from "dotenv"
  
  
@@ -8,7 +8,7 @@ import dotenv from "dotenv"
     
     const mqtt = MQTT(process.env.MQTT_URI)
     const message = "SOME MESSAGE on Date: " + Date.now()
-    const client= await mqtt.send("SOME_TOPIC",message,{ connectOpts: {
+    const client= await mqtt.send("/task/1234/item/1234",message,{ connectOpts: {
         clientId : "client1",
         clean: false
     },publishOpts: {
