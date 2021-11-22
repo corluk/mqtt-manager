@@ -75,5 +75,5 @@ export default (uri)=>{
            
         }
     
-        return {send,listen,sendAndListen}
+        return {send,listen}
 }   
