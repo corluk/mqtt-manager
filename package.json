@@ -1,11 +1,12 @@
 {
-  "name": "mqtt-manager",
+  "name": "@corluk/mqtt-manager",
   "version": "1.0.4",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node_modules/.bin/babel src --out-dir lib"
+    "build": "node_modules/.bin/babel src --out-dir lib",
+    "push" : "yarn build && yarn publish --access public"
   },
   "repository": {
     "type": "git",

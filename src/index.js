@@ -1,10 +1,11 @@
 import mqtt, { connect } from "mqtt"
 
+ 
 export default (uri)=>{
 
     
 
- 
+
         
         const send = (topic,msg,opts  )=>{
 
@@ -62,18 +63,9 @@ export default (uri)=>{
                        
                     })
                
-                })
+                })      
 
-
-         
-                
-                
-               
-               
-              
-
-           
         }
     
-        return {send,listen,sendAndListen}
+        return {send,listen}
 }   
