@@ -31,7 +31,7 @@ Purpose of package  is to minify effort applyling mqtt protocol in nodejs.
 
 *listen and send * 
     import MQTT from "@corluk/mqtt-manager" 
-    const mqtt = MQTT(process.env.MQTT_URI) 
+    const mqttListener  = MQTT(process.env.MQTT_URI) 
 
     const handler =(topic,message)=>{
 
@@ -46,4 +46,6 @@ Purpose of package  is to minify effort applyling mqtt protocol in nodejs.
     setTimeout(()=>{
         mqtt.listen("pong",handler)
     },1000)
-    mqtt.send("ping")
+    const mqttPublisher  = mqttListener.newConnection() 
+    mqttPublisher.send("ping")
+    

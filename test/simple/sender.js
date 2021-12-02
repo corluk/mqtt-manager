@@ -7,16 +7,17 @@ import dotenv from "dotenv"
     dotenv.config() 
     
     const mqtt = MQTT(process.env.MQTT_URI)
+ 
     const message = "SOME MESSAGE on Date: " + Date.now()
-    const client= await mqtt.send("SOME_TOPIC",message,{ connectOpts: {
+    await mqtt.send("SOME_TOPIC",message,{ connectOpts: {
         clientId : "client1",
         clean: false
     },publishOpts: {
         qos : 0, 
         retain : true
     }})
-    console.log("message sent : ",message)
-    client.end()
+     
+    mqtt.getClient().end()
     
 })()
 

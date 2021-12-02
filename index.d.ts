@@ -1,3 +1,4 @@
+import { MqttClient } from "mqtt";
 
 declare module MQTTHelper {
     
@@ -5,6 +6,7 @@ declare module MQTTHelper {
 
         listen(topic:string,handlerFn:( topic:string,message:Buffer)=>null ,opts:[]):null  
         send(topic:string,message:Buffer):null 
-
+        getClient():MqttClient
+        newConnection():MQTT 
     })
 }
